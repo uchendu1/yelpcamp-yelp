@@ -21,7 +21,13 @@ var ejsLint = require("ejs-lint");
 // var url = "mongodb+srv://yelpcamp-zn65v.mongodb.net/test  --username linda_1", 
 // mongoose.connect("mongodb+srv://yelpcamp-zn65v.mongodb.net/test"); 
 // mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true});
-mongoose.connect("mongodb+srv://linda_1:lindy@yelpcamp-zn65v.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect(
+    "mongodb+srv://linda_1:lindy@yelpcamp-zn65v.mongodb.net/test?retryWrites=true&w=majority",
+    { useNewUrlParser: true})
+    .catch((error) => {
+        print("error connect", error)
+});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -52,6 +58,7 @@ app.use(function(req, res, next){
     res.locals.success = req.flash("success");
     next(); 
 });
+
 // above code is added automatically to all routes. "req.user" contains d logged-in users and ids.
 
 app.use("/", indexRoutes);
