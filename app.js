@@ -20,16 +20,16 @@ var ejsLint = require("ejs-lint");
 
 // var url = "mongodb+srv://yelpcamp-zn65v.mongodb.net/test  --username linda_1", 
 // mongoose.connect("mongodb+srv://yelpcamp-zn65v.mongodb.net/test"); 
-// mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true})
+mongoose.connect("mongodb://localhost:27017/yelp_camp", {useNewUrlParser: true})
 // .catch((error) => {
     // console.log("error conneeeeeeeeeect", error)
 // });
-mongoose.connect(
-    "mongodb+srv://linda_1:lindy@yelpcamp-zn65v.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true})
-    .catch((error) => {
-        console.log("error conneeeeeeeeeect", error)
-});
+// mongoose.connect(
+//     "mongodb+srv://linda_1:lindy@yelpcamp-zn65v.mongodb.net/test?retryWrites=true&w=majority",
+//     { useNewUrlParser: true})
+//     .catch((error) => {
+//         console.log("error conneeeeeeeeeect", error)
+// });
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -71,6 +71,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 //above codes are the end points
  
 const port = process.env.PORT || 3000
+
 app.listen(port, () =>{
     console.log(`yelp camp server has started on port ${port}`)
     
