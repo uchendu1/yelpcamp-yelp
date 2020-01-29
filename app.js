@@ -39,7 +39,7 @@ app.use(flash());
 console.log(__dirname);
 
 
-seedDB(); 
+// seedDB(); 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
     secret: "Once again Rusty wins cutest dog!",
