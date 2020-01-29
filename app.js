@@ -25,7 +25,8 @@ mongoose.connect(
     "mongodb+srv://linda_1:lindy@yelpcamp-zn65v.mongodb.net/test?retryWrites=true&w=majority",
     { useNewUrlParser: true})
     .catch((error) => {
-        console.log("error connect", error)
+        console.log("================",
+         error)
 });
 
 app.use(bodyParser.urlencoded({extended: true}));
